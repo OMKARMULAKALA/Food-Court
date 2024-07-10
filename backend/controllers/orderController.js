@@ -45,11 +45,6 @@ const placeOrder = async (req, res) => {
   }
 };
 
-// Other controller functions...
-
-
-
-
 
 const verifyOrder = async (req, res) => {
   const { orderId, success } = req.body;
