@@ -9,7 +9,7 @@ import orderRouter from "./routes/orderRoute.js";
 
 //app config
 const app = express();
-const port = 4000;
+const PORT = process.env.PORT || 4000;
 
 //middleware
 app.use(express.json());
@@ -30,6 +30,6 @@ app.get("/", (req, res) => {
 });
 
 // Bind the server to 0.0.0.0 to expose it to other systems on the network
-app.listen(port, '0.0.0.0', () => {
-    console.log(`Server started on http://localhost:${port}`);
+app.listen(PORT, '0.0.0.0', () => {
+    console.log(`Server started on http://localhost:${PORT}`);
 });
