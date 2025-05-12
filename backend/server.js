@@ -7,18 +7,18 @@ import 'dotenv/config';
 import cartRouter from "./routes/cartRoute.js";
 import orderRouter from "./routes/orderRoute.js";
 
-//app config
+// app config
 const app = express();
-const PORT = process.env.PORT || 4000;
+const PORT = process.env.PORT || 4000;  // Use Render's PORT environment variable
 
-//middleware
+// middleware
 app.use(express.json());
 app.use(cors());
 
-//db connection
+// db connection
 connectDB();
 
-//api endpoints
+// api endpoints
 app.use("/api/food", foodRouter);
 app.use("/images", express.static('uploads'));
 app.use("/api/user", userRouter);
@@ -29,7 +29,7 @@ app.get("/", (req, res) => {
     res.send("API Working");
 });
 
-// Bind the server to 0.0.0.0 to expose it to other systems on the network
-app.listen(PORT, '0.0.0.0', () => {
+// Listen on the port provided by Render, or default to 4000
+app.listen(PORT, () => {
     console.log(`Server started on http://localhost:${PORT}`);
 });
