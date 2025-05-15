@@ -21,6 +21,7 @@ const LoginPopup = ({ onLoginSuccess }) => {
 
     try {
       const response = await axios.post(`${url}/api/user/login`, data);
+      console.log(response)
 
       if (response.data.success) {
         const role = response.data.user?.role;
