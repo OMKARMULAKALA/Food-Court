@@ -21,8 +21,14 @@ const LoginPopup = ({ onLoginSuccess }) => {
 
     try {
       const response = await axios.post(`${url}/api/user/login`, data);
+
       if (response.data.success) {
-        onLoginSuccess(response.data.token);
+        const role = response.data.user?.role;
+        if (role === "admin") {
+          onLoginSuccess(response.data.token);
+        } else {
+          alert("You are not an admin.");
+        }
       } else {
         alert(response.data.message);
       }
